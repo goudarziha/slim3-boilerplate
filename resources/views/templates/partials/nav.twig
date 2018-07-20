@@ -1,75 +1,31 @@
-{# <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-    <div class="container-fluid">
-
-        <a class="navbar-brand" href="{{ path_for('home') }}">SLIM TEST</a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="{{ path_for('home') }}">Slim Boilerplate</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ path_for('home') }}">Home
-                        <span class="sr-only">(current)</span></a>
-                </li>
+            <ul class="navbar-nav ml-auto">
 
                 {% if auth.check %}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ auth.user.name }}
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ path_for('auth.password.change') }}">Change password</a>
-                            <a class="dropdown-item" href="{{ path_for('auth.signout') }}">Sign out</a>
-                            
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#about">Help</a>
                     </li>
-                  <a href="{{ path_for('auth.signout') }}" class="nav-link">SIGN OUT</a>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="{{ path_for('auth.password.change') }}">Settings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="{{ path_for('auth.signout') }}">Sign out</a>
+                    </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path_for('auth.signin') }}">Login</a>
+                        <a href="{{ path_for('auth.signin') }}" class="nav-link">Login</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ path_for('auth.signup') }}" class="nav-link">Register</a>
                     </li>
                 {% endif %}
-            </div>
-
+            </ul>
         </div>
-    </nav> #}
-
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand" href="{{ path_for('home') }}">Todoist</a>
-    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
-        <span class="navbar-toggle-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarMenu">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a href="{{ path_for('home') }}" class="nav-link">Home</a>
-            </li>
-
-            {% if auth.check %}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ auth.user.name }}
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ path_for('auth.password.change') }}">Change password</a>
-                        <a class="dropdown-item" href="{{ path_for('auth.signout') }}">Sign out</a>
-
-                    </div>
-                </li>
-            {% else %}
-                <li class="nav-item">
-                    <a href="{{ path_for('auth.signin') }}" class="nav-link">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ path_for('auth.signup') }}" class="nav-link">Register</a>
-                </li>
-            {% endif %}
-        </ul>
     </div>
-
 </nav>

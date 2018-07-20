@@ -2,7 +2,7 @@
 
 use App\Middleware\AuthMiddleware;
 use App\Middleware\GuestMiddleware;
-
+use App\Middleware\AdminMiddleware;
 
 $app->get('/', 'HomeController:index')->setName('home');
 
@@ -21,4 +21,10 @@ $app->group('', function () {
     $this->post('/auth/password/change', 'PasswordController:postChangePassword');
 })->add(new AuthMiddleware($container));
 
+$app->get('/admin', 'AuthController:getAdminSignIn')->setName('admin.signin');
+$app->post('/admin', 'AuthController:postAdminSignIn');
+
+$app->group('', function() {
+    $this->get('/admin/dash', 'AuthController:getAdminDashboard')->setName('admin.dash');
+})->add(new AdminMiddleware($container));
 ?>

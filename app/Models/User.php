@@ -8,12 +8,19 @@
         protected $fillable = [
             'email',
             'name',
-            'password'
+            'password',
+            'admin'
         ];
 
         public function setPassword($password) {
             $this->update([
                 'password' => password_hash($password, PASSWORD_DEFAULT)
+            ]);
+        }
+
+        public function setAdmin() {
+            $this->update([
+                'admin' => "1"
             ]);
         }
     }

@@ -5,11 +5,13 @@ use App\Models\User;
 
 class Auth
 {
-    public function user() {
+    public function user()
+    {
         return User::find($_SESSION['user']);
     }
 
-    public function check() {
+    public function check()
+    {
         return isset($_SESSION['user']);
     }
 
@@ -25,13 +27,40 @@ class Auth
             $_SESSION['user'] = $user->id;
             return true;
         }
-
         return false;
     }
 
-    public function logout() {
+    public function logout()
+    {
         unset($_SESSION['user']);
     }
+
+    public function verifyAdmin($email, $password)
+    {
+        $user = User::where('email', $email)->first();
+        if (!$user) {
+            return false;
+        }
+
+        if ($user->admin === "1" &&
+            password_verify($password, $user->password)) {
+            $_SESSION['user'] = $user->id;
+            return true;
+        }
+        return false;
+    }
+
+    public function checkAdmin()
+    {
+        if (isset($_SESSION['user'])) {
+            $user = User::find($_SESSION['user']);
+            if ($user->admin === "1") {
+                return true;
+            } 
+        }
+        return false;
+    }
+
 }
 
 ?>
