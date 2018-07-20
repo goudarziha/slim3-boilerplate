@@ -1,0 +1,15 @@
+body {
+    background: white;
+}
+
+.navbar {
+    width: 100%;
+    /* background:none !important; */
+    background: black;
+
+}
+
+.navbar-toggler {
+    cursor: pointer;
+    outline: 0;
+}
