@@ -56,10 +56,12 @@ class Auth
             $user = User::find($_SESSION['user']);
             if ($user->admin === "1") {
                 return true;
-            } 
+            }
         }
         return false;
     }
+
+    
 
 }
 
