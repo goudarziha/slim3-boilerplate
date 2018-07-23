@@ -1,11 +1,41 @@
 {% if flash.getMessage('info') %}
-    <div class="alert alert-info">
-        {{ flash.getMessage('info') | first }}
-    </div>
+    <script>
+        $(document).ready(function () {
+            $.notify({
+                title: '',
+                message: "{{ flash.getMessage('info') | first }}"
+            }, {
+                type: 'info',
+                width: '20%'
+            });
+        });
+    </script>
 {% endif %}
 
 {% if flash.getMessage('error') %}
-    <div class="alert alert-danger">
-        {{ flash.getMessage('error') | first }}
-    </div>
+    <script>
+        $(document).ready(function () {
+            $.notify({
+                title: 'Unseccessful',
+                message: "{{ flash.getMessage('error') | first }}"
+            }, {
+                type: 'danger',
+                width: '20%'
+            });
+        });
+    </script>
+{% endif %}
+
+{% if flash.getMessage('success') %}
+    <script>
+        $(document).ready(function () {
+            $.notify({
+                title: 'Success!',
+                message: "{{ flash.getMessage('success') | first }}"
+            }, {
+                type: 'danger',
+                width: '20%'
+            });
+        });
+    </script>
 {% endif %}

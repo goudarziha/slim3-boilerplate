@@ -7,6 +7,7 @@
 
         public function index($request, $response) {
             if ($this->auth->check()) {
+                $this->auth->user()->updateLastTime();
                 return $this->view->render($response, 'user.twig');
             }
             return $this->container->view->render($response, 'home.twig');

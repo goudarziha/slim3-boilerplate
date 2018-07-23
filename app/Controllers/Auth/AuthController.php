@@ -6,10 +6,11 @@
 
     class AuthController extends Controller {
 
-
         public function getAdminSignIn($request, $response) {
             if ($this->auth->checkAdmin()) {
-                return $response->withRedirect($this->router->pathFor('admin.dash'));
+                return $this->view->render($response, 'admin/dashboard.twig', array(
+                    'users' => $this->auth->allUsers()
+                ));
             };
             return $this->view->render($response, 'auth/adminsignin.twig');
         }
@@ -54,7 +55,7 @@
             );
             
             if (!$auth) {
-                $this->flash.addMessage('error', 'Could not sign you in.');
+                $this->flash->addMessage('error', 'Could not sign you in.');
                 return $response->withRedirect($this->router->pathFor('auth.signin'));
             };
 

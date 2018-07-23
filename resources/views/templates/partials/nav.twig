@@ -8,7 +8,7 @@
             <ul class="navbar-nav ml-auto">
 
                 {% if auth.check %}
-                    <li class="nav-item">
+                    <li class="nav-item gravatar-nav">
                         {{auth.user.gravatar(auth.user.email, 32) | raw }}
                     </li>
                     <li class="nav-item">
@@ -21,6 +21,9 @@
                         <a class="nav-link js-scroll-trigger" href="{{ path_for('auth.signout') }}">Sign out</a>
                     </li>
                 {% else %}
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">How it works</a>
+                    </li>
                     <li class="nav-item">
                         <a href="{{ path_for('auth.signin') }}" class="nav-link">Login</a>
                     </li>

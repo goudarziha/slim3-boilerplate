@@ -1,26 +1,9 @@
-<aside class="col-12 col-md-2 p-0 bg-dark">
-    <nav class="navbar navbar-expand navbar-dark bg-dark flex-md-column flex-row align-items-start py-2">
-        <div class="collapse navbar-collapse">
-            <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
-                <li class="nav-item">
-                    <a class="nav-link pl-0 text-nowrap" href="#">
-                        <i class="fa fa-bullseye fa-fw"></i>
-                        <span class="font-weight-bold">Brand</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link pl-0" href="#">
-                        <i class="fa fa-heart-o fa-fw"></i>
-                        <span class="d-none d-md-inline">Link</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link pl-0" href="#">
-                        <i class="fa fa-book fa-fw"></i>
-                        <span class="d-none d-md-inline">Link</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</aside>
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="{{ path_for('auth.signout') }}">Sign out</a>
+        </li>
+    </ul>
+</nav>

@@ -3,8 +3,17 @@
 {% block content %}
     <section>
        <div class="container">
-           <div class="col-md-6 text-center" style="padding-top:100px;">
+           <div class="row">
+           <div class="col-md-6" style="padding-top:100px;">
                 {{auth.user.gravatar(auth.user.email, 256) | raw }}
+
+           </div>
+           <div class="col-md-6">
+                {{auth.user.name}}
+                {{auth.user.email}}
+                created: {{auth.user.created_at}}
+                last login: {{auth.user.updated_at}}
+           </div>
            </div>
        </div>
     </section>

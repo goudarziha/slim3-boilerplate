@@ -10,6 +10,16 @@ class Auth
         return User::find($_SESSION['user']);
     }
 
+    public function allUsers()
+    {
+        return User::all();
+    }
+
+    public function updateLoginTime() {
+        $user = User::find($_SESSION['user']);
+        $user->updateLastTime();
+    }
+
     public function check()
     {
         return isset($_SESSION['user']);
